@@ -1,8 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2rkok5lk8mhq"]
+[gd_scene load_steps=4 format=3 uid="uid://d2rkok5lk8mhq"]
 
 [ext_resource type="PackedScene" uid="uid://cjoa2swn2dbw6" path="res://Bird.tscn" id="1_4y3yw"]
+[ext_resource type="Script" path="res://World.gd" id="1_vss5r"]
+[ext_resource type="PackedScene" uid="uid://baauricetjr8s" path="res://Pipe.tscn" id="2_wx1rl"]
 
 [node name="World" type="Node"]
+script = ExtResource("1_vss5r")
+
+[node name="Pipe" parent="." instance=ExtResource("2_wx1rl")]
+position = Vector2(458, 406)
 
 [node name="Bird" parent="." instance=ExtResource("1_4y3yw")]
 position = Vector2(242, 349)
+scale = Vector2(0.5, 0.5)
+
+[node name="CurrentScoreText" type="Label" parent="."]
+offset_left = 547.0
+offset_top = 16.0
+offset_right = 590.0
+offset_bottom = 39.0
+text = "Score"
+
+[node name="CurrentScoreNumber" type="Label" parent="."]
+offset_left = 606.0
+offset_top = 17.0
+offset_right = 646.0
+offset_bottom = 40.0
+text = "0"
+
+[node name="HighScoreNumber" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 15.0
+offset_right = 323.0
+offset_bottom = 38.0
+text = "0"
+
+[node name="HighScoreText" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 13.0
+offset_right = 245.0
+offset_bottom = 42.0
+text = "High Score"
+
+[connection signal="hit" from="Pipe" to="." method="_on_pipe_hit"]
+[connection signal="score" from="Pipe" to="." method="_on_pipe_score"]

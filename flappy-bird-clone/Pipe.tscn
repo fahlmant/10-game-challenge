@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://baauricetjr8s"]
+
+[ext_resource type="Texture2D" uid="uid://cih2n1h1d7s1i" path="res://pipe-green.png" id="1_inica"]
+[ext_resource type="Script" path="res://Pipe.gd" id="1_kfu8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84wkj"]
+size = Vector2(48, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jepnd"]
+size = Vector2(48, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36kk3"]
+size = Vector2(3, 120)
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_kfu8c")
+
+[node name="Collision" type="Area2D" parent="."]
+
+[node name="UpperCollision" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, -280)
+shape = SubResource("RectangleShape2D_84wkj")
+
+[node name="UpperSprite" type="Sprite2D" parent="Collision/UpperCollision"]
+texture = ExtResource("1_inica")
+flip_v = true
+
+[node name="LowerCollision" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, 160)
+shape = SubResource("RectangleShape2D_jepnd")
+
+[node name="LowerSprite" type="Sprite2D" parent="Collision/LowerCollision"]
+texture = ExtResource("1_inica")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(26, -60)
+shape = SubResource("RectangleShape2D_36kk3")
+
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

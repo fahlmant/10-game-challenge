@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2rkok5lk8mhq"]
+[gd_scene load_steps=5 format=3 uid="uid://d2rkok5lk8mhq"]
 
 [ext_resource type="PackedScene" uid="uid://cjoa2swn2dbw6" path="res://Bird.tscn" id="1_4y3yw"]
 [ext_resource type="Script" path="res://World.gd" id="1_vss5r"]
 [ext_resource type="PackedScene" uid="uid://baauricetjr8s" path="res://Pipe.tscn" id="2_wx1rl"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8ugr"]
+size = Vector2(1.75, 760)
+
 [node name="World" type="Node"]
 script = ExtResource("1_vss5r")
 
-[node name="Pipe" parent="." instance=ExtResource("2_wx1rl")]
+[node name="Pipes" type="Node2D" parent="."]
+
+[node name="Pipe1" parent="Pipes" instance=ExtResource("2_wx1rl")]
 position = Vector2(458, 406)
 
 [node name="Bird" parent="." instance=ExtResource("1_4y3yw")]
@@ -42,5 +47,12 @@ offset_right = 245.0
 offset_bottom = 42.0
 text = "High Score"
 
-[connection signal="hit" from="Pipe" to="." method="_on_pipe_hit"]
-[connection signal="score" from="Pipe" to="." method="_on_pipe_score"]
+[node name="End" type="Area2D" parent="."]
+position = Vector2(-18, 382)
+
+[node name="End" type="CollisionShape2D" parent="End"]
+shape = SubResource("RectangleShape2D_q8ugr")
+
+[connection signal="hit" from="Pipes/Pipe1" to="." method="_on_pipe_hit"]
+[connection signal="score" from="Pipes/Pipe1" to="." method="_on_pipe_score"]
+[connection signal="area_entered" from="End" to="." method="_on_end_area_entered"]

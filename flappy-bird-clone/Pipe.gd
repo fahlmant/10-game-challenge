@@ -7,5 +7,4 @@ func _on_score_area_body_entered(body):
 	score.emit()
 
 func _on_collision_body_entered(body):
-	print("HIT")
 	hit.emit()

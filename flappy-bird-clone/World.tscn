@@ -28,7 +28,7 @@ position = Vector2(856, 406)
 position = Vector2(1050, 437)
 
 [node name="Pipe5" parent="Pipes" instance=ExtResource("2_wx1rl")]
-position = Vector2(1201, 431)
+position = Vector2(1201, 401)
 
 [node name="Pipe6" parent="Pipes" instance=ExtResource("2_wx1rl")]
 position = Vector2(1343, 432)

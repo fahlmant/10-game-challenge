@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjoa2swn2dbw6"]
 
 [ext_resource type="Script" path="res://Bird.gd" id="1_b24vp"]
-[ext_resource type="Texture2D" uid="uid://cecx6ci0yqd70" path="res://icon.png" id="1_gwb78"]
+[ext_resource type="Texture2D" uid="uid://cvwy8pcyomgy2" path="res://icon.png" id="1_gwb78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mece6"]
 size = Vector2(62, 62)

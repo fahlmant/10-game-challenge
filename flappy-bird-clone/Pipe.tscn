@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://baauricetjr8s"]
 
-[ext_resource type="Texture2D" uid="uid://b4flo8w3ry06s" path="res://pipe-green.png" id="1_inica"]
+[ext_resource type="Texture2D" uid="uid://2p0c7x8wf0jy" path="res://pipe-green.png" id="1_inica"]
 [ext_resource type="Script" path="res://Pipe.gd" id="1_kfu8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84wkj"]

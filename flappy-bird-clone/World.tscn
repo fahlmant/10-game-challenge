@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cjoa2swn2dbw6" path="res://Bird.tscn" id="1_4y3yw"]
 [ext_resource type="Script" path="res://World.gd" id="1_vss5r"]
 [ext_resource type="PackedScene" uid="uid://baauricetjr8s" path="res://Pipe.tscn" id="2_wx1rl"]
-[ext_resource type="AudioStream" uid="uid://bm4tuubeucvmq" path="res://gameover.mp3" id="4_1386x"]
-[ext_resource type="AudioStream" uid="uid://dxdfla8rfm45l" path="res://getpoint.wav" id="5_wgn4i"]
+[ext_resource type="AudioStream" uid="uid://1ayims11ivwp" path="res://gameover.mp3" id="4_1386x"]
+[ext_resource type="AudioStream" uid="uid://dritj4hfrw5nb" path="res://getpoint.wav" id="5_wgn4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8ugr"]
 size = Vector2(2, 720)

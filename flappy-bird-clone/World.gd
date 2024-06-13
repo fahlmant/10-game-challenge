@@ -6,7 +6,6 @@ var high_score = 0
 var pipe_scene = preload("res://Pipe.tscn")
 
 var rng = RandomNumberGenerator.new()
-# TODO: New Game and Quit menu
 # TODO: Saving high score
 
 func _ready():

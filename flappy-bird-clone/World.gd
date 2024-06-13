@@ -6,14 +6,33 @@ var high_score = 0
 var pipe_scene = preload("res://Pipe.tscn")
 
 var rng = RandomNumberGenerator.new()
-# TODO: Sounds for jumping, scoring and game over
 # TODO: New Game and Quit menu
 # TODO: Saving high score
 
 func _ready():
+	get_tree().paused = true
+	show_menu()
 	for pipe in $Pipes.get_children():
 		pipe.hit.connect(_on_pipe_hit)
 		pipe.score.connect(_on_pipe_score)
+
+func show_menu():
+	$Title.show()
+	$Menu.show()
+	$Pipes.hide()
+	$Bird.hide()
+	$CurrentScoreText.hide()
+	$CurrentScoreNumber.hide()
+
+
+func hide_menu():
+	$Title.hide()
+	$Menu.hide()
+	$Pipes.show()
+	$Bird.show()
+	$CurrentScoreText.show()
+	$CurrentScoreNumber.show()
+
 
 func add_pipe():
 	var pipe = pipe_scene.instantiate()
@@ -54,3 +73,14 @@ func _on_top_body_entered(body):
 func _on_bottom_body_entered(body):
 	if body.name == "Bird":
 		game_over()
+
+
+func _on_new_game_button_pressed():
+	hide_menu()
+	get_tree().paused = false
+
+func _on_quit_game_button_pressed():
+	get_tree().quit()
+
+func _on_game_over_sound_finished():
+	show_menu()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2rkok5lk8mhq"]
+[gd_scene load_steps=8 format=3 uid="uid://d2rkok5lk8mhq"]
 
 [ext_resource type="PackedScene" uid="uid://cjoa2swn2dbw6" path="res://Bird.tscn" id="1_4y3yw"]
 [ext_resource type="Script" path="res://World.gd" id="1_vss5r"]
 [ext_resource type="PackedScene" uid="uid://baauricetjr8s" path="res://Pipe.tscn" id="2_wx1rl"]
+[ext_resource type="AudioStream" uid="uid://haapw4o7llcd" path="res://gameover.mp3" id="4_1386x"]
+[ext_resource type="AudioStream" uid="uid://bfoeycphc4ch7" path="res://getpoint.wav" id="5_wgn4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8ugr"]
 size = Vector2(2, 720)
@@ -88,6 +90,12 @@ position = Vector2(640, 720)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
 shape = SubResource("RectangleShape2D_a5a2b")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1386x")
+
+[node name="PointSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wgn4i")
 
 [connection signal="area_entered" from="End" to="." method="_on_end_area_entered"]
 [connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]

@@ -6,6 +6,10 @@ var high_score = 0
 var pipe_scene = preload("res://Pipe.tscn")
 
 var rng = RandomNumberGenerator.new()
+# TODO: Sounds for jumping, scoring and game over
+# TODO: New Game and Quit menu
+# TODO: Saving high score
+
 func _ready():
 	for pipe in $Pipes.get_children():
 		pipe.hit.connect(_on_pipe_hit)
@@ -24,13 +28,18 @@ func _process(delta):
 		pipe.position.x -= 2
 
 func _on_pipe_score():
+	$PointSound.play()
 	current_score += 1
 	$CurrentScoreNumber.text = str(current_score)
 	if current_score > high_score:
 		$HighScoreNumber.text = str(current_score)
 
+func game_over():
+	get_tree().paused = true
+	$GameOverSound.play()
+
 func _on_pipe_hit():
-	print("Game Over")
+	game_over()
 
 func _on_end_area_entered(area):
 	if area.name == "PipeEnd":
@@ -39,9 +48,9 @@ func _on_end_area_entered(area):
 
 func _on_top_body_entered(body):
 	if body.name == "Bird":
-		print("Game Over")
+		game_over()
 
 
 func _on_bottom_body_entered(body):
 	if body.name == "Bird":
-		print("Game Over")
+		game_over()

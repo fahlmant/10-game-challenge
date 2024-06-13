@@ -9,6 +9,11 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	
 	if Input.is_action_just_pressed("Jump"):
-		velocity.y = JUMP_VELOCITY
+		jump()
 	
 	move_and_slide()
+
+
+func jump():
+	velocity.y = JUMP_VELOCITY
+	$JumpSound.play()

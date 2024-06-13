@@ -36,3 +36,12 @@ func _on_end_area_entered(area):
 	if area.name == "PipeEnd":
 		area.get_parent().queue_free()
 		add_pipe()
+
+func _on_top_body_entered(body):
+	if body.name == "Bird":
+		print("Game Over")
+
+
+func _on_bottom_body_entered(body):
+	if body.name == "Bird":
+		print("Game Over")

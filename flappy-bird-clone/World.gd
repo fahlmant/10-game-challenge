@@ -3,13 +3,20 @@ extends Node
 var current_score = 0
 var high_score = 0
 
+var pipe_scene = preload("res://Pipe.tscn")
+
 func _ready():
 	for pipe in $Pipes.get_children():
 		pipe.hit.connect(_on_pipe_hit)
 		pipe.score.connect(_on_pipe_score)
 
 func add_pipe():
-	pass
+	var pipe = pipe_scene.instantiate()
+	pipe.position.x = 1300
+	pipe.position.y = 420
+	pipe.hit.connect(_on_pipe_hit)
+	pipe.score.connect(_on_pipe_score)
+	$Pipes.call_deferred("add_child",pipe)
 
 func _process(delta):
 	for pipe in $Pipes.get_children():
@@ -27,3 +34,4 @@ func _on_pipe_hit():
 func _on_end_area_entered(area):
 	if area.name == "PipeEnd":
 		area.get_parent().queue_free()
+		add_pipe()

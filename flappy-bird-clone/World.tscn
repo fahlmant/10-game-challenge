@@ -18,8 +18,26 @@ script = ExtResource("1_vss5r")
 [node name="Pipe1" parent="Pipes" instance=ExtResource("2_wx1rl")]
 position = Vector2(458, 406)
 
-[node name="Pipe" parent="Pipes" instance=ExtResource("2_wx1rl")]
+[node name="Pipe2" parent="Pipes" instance=ExtResource("2_wx1rl")]
 position = Vector2(659, 439)
+
+[node name="Pipe3" parent="Pipes" instance=ExtResource("2_wx1rl")]
+position = Vector2(856, 406)
+
+[node name="Pipe4" parent="Pipes" instance=ExtResource("2_wx1rl")]
+position = Vector2(1050, 437)
+
+[node name="Pipe5" parent="Pipes" instance=ExtResource("2_wx1rl")]
+position = Vector2(1201, 431)
+
+[node name="Pipe6" parent="Pipes" instance=ExtResource("2_wx1rl")]
+position = Vector2(1343, 432)
+
+[node name="Pipe7" parent="Pipes" instance=ExtResource("2_wx1rl")]
+position = Vector2(1508, 426)
+
+[node name="Pipe8" parent="Pipes" instance=ExtResource("2_wx1rl")]
+position = Vector2(1656, 380)
 
 [node name="Bird" parent="." instance=ExtResource("1_4y3yw")]
 position = Vector2(242, 349)

@@ -5,6 +5,7 @@ var high_score = 0
 
 var pipe_scene = preload("res://Pipe.tscn")
 
+var rng = RandomNumberGenerator.new()
 func _ready():
 	for pipe in $Pipes.get_children():
 		pipe.hit.connect(_on_pipe_hit)
@@ -13,7 +14,7 @@ func _ready():
 func add_pipe():
 	var pipe = pipe_scene.instantiate()
 	pipe.position.x = 1300
-	pipe.position.y = 420
+	pipe.position.y = randi_range(380,450)
 	pipe.hit.connect(_on_pipe_hit)
 	pipe.score.connect(_on_pipe_score)
 	$Pipes.call_deferred("add_child",pipe)

@@ -6,7 +6,6 @@ var high_score = 0
 var pipe_scene = preload("res://Pipe.tscn")
 
 var rng = RandomNumberGenerator.new()
-# TODO: Saving high score
 
 func _ready():
 	get_tree().paused = true
@@ -62,7 +61,7 @@ func _on_pipe_score():
 	$PointSound.play()
 	current_score += 1
 	$CurrentScoreNumber.text = str(current_score)
-	if current_score > high_score:
+	if current_score  > high_score:
 		high_score = current_score
 		$HighScoreNumber.text = str(current_score)
 
@@ -99,5 +98,4 @@ func _on_quit_game_button_pressed():
 func _on_game_over_sound_finished():
 	show_menu()
 
-func update_high_score():
-	pass 
+

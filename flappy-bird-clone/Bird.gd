@@ -13,7 +13,6 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-
 func jump():
 	velocity.y = JUMP_VELOCITY
 	$JumpSound.play()

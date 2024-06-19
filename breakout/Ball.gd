@@ -9,6 +9,9 @@ func _ready():
 func _physics_process(delta):
 	var collision_object = move_and_collide(ball_velocity*speed * delta)
 	if collision_object:
+		var collider = collision_object.get_collider()
+		if collider is Brick:
+			collider.brick_hit()
 		ball_velocity = ball_velocity.bounce(collision_object.get_normal())
 
 func reset_ball():

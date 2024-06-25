@@ -7,8 +7,8 @@ size = Vector2(50, 20)
 
 [node name="Brick" type="RigidBody2D"]
 gravity_scale = 0.0
-max_contacts_reported = 500
 contact_monitor = true
+max_contacts_reported = 500
 script = ExtResource("1_dmp7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

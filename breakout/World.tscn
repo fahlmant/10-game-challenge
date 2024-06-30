@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://byg65ayqqtjmv"]
+[gd_scene load_steps=7 format=3 uid="uid://byg65ayqqtjmv"]
 
 [ext_resource type="PackedScene" uid="uid://e2i58bn40far" path="res://Paddle.tscn" id="1_cn5i5"]
 [ext_resource type="Script" path="res://World.gd" id="1_k3abu"]
@@ -10,6 +10,9 @@ size = Vector2(30, 720)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nm10"]
 size = Vector2(1280, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qb6pb"]
+size = Vector2(1280, 30)
+
 [node name="World" type="Node"]
 script = ExtResource("1_k3abu")
 
@@ -19,7 +22,7 @@ position = Vector2(590, 600)
 [node name="Bricks" type="Node2D" parent="."]
 
 [node name="Ball" parent="." instance=ExtResource("3_qsdli")]
-position = Vector2(580, 560)
+position = Vector2(580, 550)
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(1295, 360)
@@ -67,3 +70,15 @@ offset_top = 580.0
 offset_right = 884.0
 offset_bottom = 603.0
 text = "3"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(640, 735)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qb6pb")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

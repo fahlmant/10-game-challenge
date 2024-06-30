@@ -24,3 +24,23 @@ func _on_brick_hit(body):
 	score += 1
 	$ScoreNumber.text = str(score)
 	body.queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Ball":
+		lives -= 1
+		if lives <= 0:
+			end_game()
+		$LivesNumber.text = str(lives)
+		$Ball.reset_ball()
+		$Ball.position.x = $Paddle.position.x
+		$Ball.stop_ball()
+		$Timer.start()
+
+func end_game():
+	pass
+
+
+func _on_timer_timeout() -> void:
+	$Ball.start_ball()
+	$Timer.stop()

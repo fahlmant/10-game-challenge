@@ -6,7 +6,7 @@
 size = Vector2(50, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe4nk"]
-size = Vector2(49.594, 20)
+size = Vector2(50, 20)
 
 [node name="Paddle" type="CharacterBody2D"]
 script = ExtResource("1_n16qf")

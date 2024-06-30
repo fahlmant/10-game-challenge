@@ -38,3 +38,32 @@ position = Vector2(640, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
 shape = SubResource("RectangleShape2D_1nm10")
+
+[node name="ScoreText" type="Label" parent="."]
+offset_left = 123.0
+offset_top = 580.0
+offset_right = 171.0
+offset_bottom = 603.0
+text = "Score:
+"
+
+[node name="ScoreNumber" type="Label" parent="."]
+offset_left = 183.0
+offset_top = 580.0
+offset_right = 223.0
+offset_bottom = 603.0
+text = "0"
+
+[node name="LivesText" type="Label" parent="."]
+offset_left = 793.0
+offset_top = 580.0
+offset_right = 837.0
+offset_bottom = 603.0
+text = "Lives:"
+
+[node name="LivesNumber" type="Label" parent="."]
+offset_left = 844.0
+offset_top = 580.0
+offset_right = 884.0
+offset_bottom = 603.0
+text = "3"

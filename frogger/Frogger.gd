@@ -2,6 +2,8 @@ extends Area2D
 
 
 @export var tile_size = 32
+@export var animation_speed = 3
+var moving = false
 var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
 			"up": Vector2.UP,
@@ -17,4 +19,8 @@ func _unhandled_input(event):
 			move(dir)
 
 func move(dir):
-	position += inputs[dir] * tile_size
+	var tween = create_tween()
+	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	moving = true
+	await tween.finished
+	moving = false

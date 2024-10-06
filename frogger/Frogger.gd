@@ -16,7 +16,17 @@ func _ready():
 func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
+			rotate_toward_dir(dir)
 			move(dir)
+
+func rotate_toward_dir(dir):
+	var direction = inputs[dir]
+	if direction.x != 0:
+		rotation_degrees = 90 * direction.x
+	else:
+		rotation_degrees = max(0, 180 * direction.y)
+	print("Rotation: " + str(rotation_degrees))
+
 
 func move(dir):
 	var tween = create_tween()
